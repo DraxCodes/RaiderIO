@@ -1,6 +1,6 @@
 # RaiderIO [![Build status](https://ci.appveyor.com/api/projects/status/bi3vs4lpl1c02i38?svg=true)](https://ci.appveyor.com/project/joelp53/party-bot)
 
-## A Simple Discord Music Bot Designed For Medium Sized Servers.
+## A C# RaiderIO Library To Retrieve and use data from the RaiderIO Api. 
 
 ## Built With
 
