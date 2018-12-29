@@ -2,10 +2,6 @@
 
 ## A C# RaiderIO Library To Retrieve and use data from the RaiderIO Api. 
 
-## Built With
-
-* [DotNet Core (Version - 2.1)](https://dotnet.microsoft.com/download/dotnet-core/2.2) - Dotnet version.
-
 ## USAGE
 ```cs
 //Create a new instance of the RaiderIO Client.
@@ -25,10 +21,10 @@ foreach (var item in mythicplus.RecentRuns)
 ```
 
 
-## Authors
+### Authors
 
 * **Draxis (Me)** - *Initial work* - [Drax](https://github.com/joelp53/)
 
-## License
+### License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
