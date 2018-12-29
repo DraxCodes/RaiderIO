@@ -14,7 +14,12 @@ namespace RaiderIoTestApp
             var mythicplus = client.GetMythicPlusData();
             foreach (var item in mythicplus.RecentRuns)
             {
-                Console.WriteLine($"Mythic Plus Test: {item.DungeonName}");
+                Console.WriteLine($"Mythic Plus Test[Recent Runs]: {item.DungeonName} - LevelUp: {item.KeystoneUpgradeNum}");
+            }
+
+            foreach (var item in mythicplus.BestRuns)
+            {
+                Console.WriteLine($"Mythic Plus Test[Best Runs]: {item.DungeonName} - LevelUp: {item.KeystoneUpgradeNum}");
             }
             Console.ReadLine();
         }
