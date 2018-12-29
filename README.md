@@ -1,4 +1,4 @@
-# RaiderIO [![Build status](https://ci.appveyor.com/api/projects/status/wieghmj1380r1hom?svg=true)](https://ci.appveyor.com/project/joelp53/raiderio)
+# RaiderIOSharp [![Build status](https://ci.appveyor.com/api/projects/status/wieghmj1380r1hom?svg=true)](https://ci.appveyor.com/project/joelp53/raiderio)
 
 ## A C# RaiderIO Library To Retrieve and use data from the RaiderIO Api. 
 
