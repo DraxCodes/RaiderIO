@@ -6,7 +6,7 @@
 
 * [DotNet Core (Version - 2.1)](https://dotnet.microsoft.com/download/dotnet-core/2.2) - Dotnet version.
 
-##USAGE
+## USAGE
 ```cs
 //Create a new instance of the RaiderIO Client.
 //Client requires 3 things. Region, Realm & Character Name. Provide them as below.
@@ -15,7 +15,7 @@ var client = new RaiderIOClient(Region.EU, "Draenor", "Shamkie");
 //Now you're able to access all the basic Raider.IO data for the specified user.
 Console.WriteLine($"Extended Character Test: {client.Champion.GetRaidProgression.Uldir.Summary}");
 ```
-###Get More MythicPlus Info For That Character
+### Get More MythicPlus Info For That Character
 ```cs
 var mythicplus = client.GetMythicPlusData();
 foreach (var item in mythicplus.RecentRuns)
