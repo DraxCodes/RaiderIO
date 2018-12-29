@@ -19,7 +19,20 @@ foreach (var item in mythicplus.RecentRuns)
      Console.WriteLine($"Mythic Plus Test: {item.DungeonName}");
 }
 ```
-
+### Currently Supports
+- [x] Character Info
+- [x] Basic Gear Info (ItemLevel)
+- [x] Mythic+ Scores
+- [x] Raid Progression
+- [x] Mythic+ Recent Runs
+- [x] Mythic+ Best Runs
+- [ ] Mythic+ Weekly Best Runs
+- [ ] Mythic+ Highest Level Runs
+- [ ] Mythic+ Rankings
+- [ ] Ahead Of The Curve
+- [ ] Guild Raid Data
+- [ ] Weekly Affixes
+- [ ] Raid Hall Of Fame
 
 ### Authors
 
