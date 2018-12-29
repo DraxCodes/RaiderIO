@@ -11,7 +11,7 @@ namespace RaiderIoTestApp
             var client = new RaiderIOClient(Region.EU, "Draenor", "Shamkie");
             Console.WriteLine($"Extended Character Test: {client.Champion.GetRaidProgression.Uldir.Summary}");
 
-            var mythicplus = client.GetMythicPlusData();
+            var mythicplus = client.GetMythicPlusData(3);
             foreach (var item in mythicplus.RecentRuns)
             {
                 Console.WriteLine($"Mythic Plus Test[Recent Runs]: {item.DungeonName} - LevelUp: {item.KeystoneUpgradeNum}");
