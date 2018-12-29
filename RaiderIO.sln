@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaiderIO", "RaiderIO\RaiderIO.csproj", "{66527DE9-0860-431E-8C32-FF038F4EA091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaiderIO", "RaiderIO\RaiderIO.csproj", "{66527DE9-0860-431E-8C32-FF038F4EA091}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaiderIoTestApp", "RaiderIoTestApp\RaiderIoTestApp.csproj", "{27073B8E-F58F-46A3-B527-3A33D69E0753}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaiderIoTestApp", "RaiderIoTestApp\RaiderIoTestApp.csproj", "{27073B8E-F58F-46A3-B527-3A33D69E0753}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
