@@ -22,7 +22,7 @@ namespace RaiderIO
 
         public MythicPlus GetMythicPlusData()
         {
-            var baseUrl = $"{GetBaseUrl(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_recent_runs%2C mythic_plus_best_runs";
+            var baseUrl = $"{GetBaseUrl(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_best_runs%2Cmythic_plus_recent_runs";
             return DeserializeJson(DataType.MythicPlus, baseUrl) as MythicPlus;
         }
 

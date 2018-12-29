@@ -6,10 +6,12 @@ namespace RaiderIO.Entities
     public class MythicPlus
     {
         [JsonProperty("mythic_plus_recent_runs")]
-        public Mythic_Plus_Recent_Runs[] RecentRuns { get; set; }
+        public MythicPlusRuns[] RecentRuns { get; set; }
+        [JsonProperty("mythic_plus_best_runs")]
+        public MythicPlusRuns[] BestRuns { get; set; }
     }
 
-    public class Mythic_Plus_Recent_Runs
+    public class MythicPlusRuns
     {
         [JsonProperty("dungeon")]
         public string DungeonName { get; set; }
