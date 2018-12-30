@@ -15,7 +15,7 @@ namespace RaiderIO
         private string Realm { get; set; }
 
         /// <summary>
-        /// An Instance of the RaderIo Client. Used To Access all Raider.IO Data.
+        /// An Instance of the RaderIo Client. Used To Access all Raider.IO Data. (Returns Basic Character Details Via RaiderIOClient.Champion)
         /// </summary>
         /// <param name="region">The Region the character you're looking up is from.</param>
         /// <param name="realm">The Realm the character you're looking up is on.</param>
@@ -26,6 +26,7 @@ namespace RaiderIO
             var baseUrl = $"{GetBaseUrl(region)}&realm={realm}&name={name}&fields=gear%2Cguild%2Craid_progression%2Cmythic_plus_scores";
             Champion = DeserializeJson(DataType.Character, baseUrl) as CharacterExtended;
         }
+
         /// <summary>
         ///     Gets The Mythic+ Data For The Character.
         /// </summary>
@@ -105,6 +106,36 @@ namespace RaiderIO
             return DeserializeJson(DataType.MythicPlusAffixes, baseUrl) as Affixes;
         }
 
+        /// <summary>
+        /// Gets The Guilds Raid Progression data.
+        /// </summary>
+        /// <param name="guildRegion">The Region the guild you're looking up is from.</param>
+        /// <param name="guildRealm">The Realm the guild you're looking up is from.</param>
+        /// <param name="guildName">The name of the guild you're lookin up.</param>
+        /// <returns></returns>
+        public GuildRaidProgression GetGuildRaidProgression(Region guildRegion, string guildRealm, string guildName)
+        {
+            string baseUrl = String.Empty;
+            switch (guildRegion)
+            {
+                case Region.US:
+                    baseUrl = $"https://raider.io/api/v1/guilds/profile?region=us&realm={guildRealm}&name={guildName}&fields=raid_progression";
+                    break;
+                case Region.EU:
+                    baseUrl = $"https://raider.io/api/v1/guilds/profile?region=eu&realm={guildRealm}&name={guildName}&fields=raid_progression";
+                    break;
+                case Region.KR:
+                    baseUrl = $"https://raider.io/api/v1/guilds/profile?region=kr&realm={guildRealm}&name={guildName}&fields=raid_progression";
+                    break;
+                case Region.TW:
+                    baseUrl = $"https://raider.io/api/v1/guilds/profile?region=tw&realm={guildRealm}&name={guildName}&fields=raid_progression";
+                    break;
+                default:
+                    break;
+            }
+            return DeserializeJson(DataType.GuildProgression, baseUrl) as GuildRaidProgression;
+        }
+
         private object DeserializeJson(DataType type, string baseUrl)
         {
             switch (type)
@@ -123,6 +154,8 @@ namespace RaiderIO
                     return JsonConvert.DeserializeObject<MpRanking>(GetRawData(baseUrl));
                 case DataType.MythicPlusAffixes:
                     return JsonConvert.DeserializeObject<Affixes>(GetRawData(baseUrl));
+                case DataType.GuildProgression:
+                    return JsonConvert.DeserializeObject<GuildRaidProgression>(GetRawData(baseUrl));
                 default:
                     throw new NotSupportedException("The Requested Option Is Not Supported.");
             }
