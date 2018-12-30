@@ -3,6 +3,12 @@
 ## A C# RaiderIO Library To Retrieve and use data from the RaiderIO Api. 
 
 ## USAGE
+
+**Add the Nuget Package: RaiderIoSharp via the package manager.
+Or Run**
+```bash
+Install-Package RaiderIOSharp -Version 1.0.0 
+```
 ```cs
 //Create a new instance of the RaiderIO Client.
 //Client requires 3 things. Region, Realm & Character Name. Provide them as below.
