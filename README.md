@@ -10,6 +10,8 @@
 var client = new RaiderIOClient(Region.EU, "Draenor", "Shamkie");
 //Now you're able to access all the basic Raider.IO data for the specified user.
 Console.WriteLine($"Extended Character Test: {client.Champion.GetRaidProgression.Uldir.Summary}");
+
+//Due to how Raider.IO Handles requests, it is one client per character request for now. This may change in future.
 ```
 ### Get More MythicPlus Info For That Character
 ```cs
