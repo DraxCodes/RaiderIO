@@ -26,12 +26,12 @@ foreach (var item in mythicplus.RecentRuns)
 - [x] Raid Progression
 - [x] Mythic+ Recent Runs
 - [x] Mythic+ Best Runs
-- [ ] Mythic+ Weekly Best Runs
-- [ ] Mythic+ Highest Level Runs
-- [ ] Mythic+ Rankings
+- [x] Mythic+ Weekly Best Runs
+- [x] Mythic+ Highest Level Runs
+- [x] Mythic+ Rankings
 - [ ] Ahead Of The Curve
 - [ ] Guild Raid Data
-- [ ] Weekly Affixes
+- [x] Weekly Affixes
 - [ ] Raid Hall Of Fame
 
 ### Authors
