@@ -1,4 +1,4 @@
-# RaiderIOSharp [![Build status](https://ci.appveyor.com/api/projects/status/wieghmj1380r1hom?svg=true)](https://ci.appveyor.com/project/joelp53/raiderio)
+# RaiderIOSharp [![Build status](https://ci.appveyor.com/api/projects/status/8jpbajkl2btl9xkt?svg=true)](https://ci.appveyor.com/project/joelp53/raideriosharp)
 
 ## A C# RaiderIO Library To Retrieve and use data from the RaiderIO Api. 
 
@@ -10,10 +10,15 @@
 var client = new RaiderIOClient(Region.EU, "Draenor", "Shamkie");
 //Now you're able to access all the basic Raider.IO data for the specified user.
 Console.WriteLine($"Extended Character Test: {client.Champion.GetRaidProgression.Uldir.Summary}");
+
+//Due to how Raider.IO Handles requests, it is one client per character request for now. This may change in future.
 ```
-### Get More MythicPlus Info For That Character
+### Get The MythicPlus Best Runs For That Character
 ```cs
-var mythicplus = client.GetMythicPlusData();
+//Request the best runs info.
+//Requires an Int Param for the amount of requests to return.
+var mythicplus = client.GetBestRuns(3);
+//This returns a list of the best runs for the character, you can then do whatever you like with it.
 foreach (var item in mythicplus.RecentRuns)
 {
      Console.WriteLine($"Mythic Plus Test: {item.DungeonName}");
@@ -30,7 +35,7 @@ foreach (var item in mythicplus.RecentRuns)
 - [x] Mythic+ Highest Level Runs
 - [x] Mythic+ Rankings
 - [ ] Ahead Of The Curve
-- [ ] Guild Raid Data
+- [x] Guild Raid Data
 - [x] Weekly Affixes
 - [ ] Raid Hall Of Fame
 
