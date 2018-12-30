@@ -3,6 +3,11 @@
     public enum DataType
     {
         Character,
-        MythicPlus
+        MythicPlusRecent,
+        MythicPlusBest,
+        MythicPlusWeekly,
+        MythicPlusHighest,
+        MythicPlusRanking,
+        MythicPlusAffixes
     }
 }
