@@ -12,7 +12,7 @@ namespace RaiderIO.Entities
         [JsonProperty("gear")]
         public Gear Gear { get; set; }
         [JsonProperty("raid_progression")]
-        public Raid_Progression GetRaidProgression { get; set; }
+        public Progression GetRaidProgression { get; set; }
         [JsonProperty("guild")]
         public Guild Guild { get; set; }
     }
@@ -38,7 +38,7 @@ namespace RaiderIO.Entities
         public int AzeritePower { get; set; }
     }
 
-    public class Raid_Progression
+    public class Progression
     {
         [JsonProperty("antorustheburningthrone")]
         public Raid Antorus { get; set; }

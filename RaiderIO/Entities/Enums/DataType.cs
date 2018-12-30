@@ -8,6 +8,7 @@
         MythicPlusWeekly,
         MythicPlusHighest,
         MythicPlusRanking,
-        MythicPlusAffixes
+        MythicPlusAffixes,
+        GuildProgression
     }
 }
