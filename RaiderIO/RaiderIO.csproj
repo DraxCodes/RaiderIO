@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Authors>DraxCodes</Authors>
+    <Company>Drax</Company>
+    <Product>RaiderIOSharp</Product>
+    <Description>A CSharp Library To Retrieve Data From The Raider.IO Api.</Description>
+    <PackageProjectUrl>https://github.com/DraxCodes/RaiderIOSharp</PackageProjectUrl>
+    <PackageIconUrl>https://i.imgur.com/cCh2naD.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/DraxCodes/RaiderIOSharp</RepositoryUrl>
+    <PackageTags>raider raider.io wow world of warcraft</PackageTags>
+    <PackageId>RaiderIOSharp</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
