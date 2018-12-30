@@ -11,6 +11,7 @@
     <RepositoryUrl>https://github.com/DraxCodes/RaiderIOSharp</RepositoryUrl>
     <PackageTags>raider raider.io wow world of warcraft</PackageTags>
     <PackageId>RaiderIOSharp</PackageId>
+    <PackageLicenseUrl>https://github.com/DraxCodes/RaiderIOSharp/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
