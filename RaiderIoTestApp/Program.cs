@@ -34,6 +34,9 @@ namespace RaiderIoTestApp
                 Console.WriteLine($"{item.Name}\n{item.Description}\n");
             }
 
+            var guildprog = client.GetGuildRaidProgression(Region.EU, "draenor", "Phoenix Arising");
+            Console.WriteLine($"\n\nGuild Raid Summary: {guildprog.RaidInfo.Uldir.Summary}");
+
             Console.ReadLine();
         }
 
