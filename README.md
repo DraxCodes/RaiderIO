@@ -13,9 +13,12 @@ Console.WriteLine($"Extended Character Test: {client.Champion.GetRaidProgression
 
 //Due to how Raider.IO Handles requests, it is one client per character request for now. This may change in future.
 ```
-### Get More MythicPlus Info For That Character
+### Get The MythicPlus Best Runs For That Character
 ```cs
-var mythicplus = client.GetMythicPlusData();
+//Request the best runs info.
+//Requires an Int Param for the amount of requests to return.
+var mythicplus = client.GetBestRuns(3);
+//This returns a list of the best runs for the character, you can then do whatever you like with it.
 foreach (var item in mythicplus.RecentRuns)
 {
      Console.WriteLine($"Mythic Plus Test: {item.DungeonName}");
