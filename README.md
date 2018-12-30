@@ -31,7 +31,7 @@ foreach (var item in mythicplus.RecentRuns)
 - [x] Mythic+ Rankings
 - [ ] Ahead Of The Curve
 - [ ] Guild Raid Data
-- [ ] Weekly Affixes
+- [x] Weekly Affixes
 - [ ] Raid Hall Of Fame
 
 ### Authors
