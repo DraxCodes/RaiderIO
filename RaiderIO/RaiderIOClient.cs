@@ -4,6 +4,7 @@ using RaiderIO.Entities.Enums;
 using RaiderIO.Entities.MythicPlusRuns;
 using System;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace RaiderIO
@@ -149,30 +150,42 @@ namespace RaiderIO
                 switch (type)
                 {
                     case DataType.Character:
-                        return await Task.Run(() => JsonConvert.DeserializeObject<CharacterExtended>(GetRawData(baseUrl)));
+                        return await Task.Run(async () => JsonConvert.DeserializeObject<CharacterExtended>(await GetRawData(baseUrl)));
                     case DataType.MythicPlusRecent:
-                        return await Task.Run(() => JsonConvert.DeserializeObject<MpRecentRuns>(GetRawData(baseUrl)));
+                        return await Task.Run(async () => JsonConvert.DeserializeObject<MpRecentRuns>(await GetRawData(baseUrl)));
                     case DataType.MythicPlusBest:
-                        return await Task.Run(() => JsonConvert.DeserializeObject<MpBestRuns>(GetRawData(baseUrl)));
+                        return await Task.Run(async () => JsonConvert.DeserializeObject<MpBestRuns>(await GetRawData(baseUrl)));
                     case DataType.MythicPlusWeekly:
-                        return await Task.Run(() => JsonConvert.DeserializeObject<MpWeeklyRuns>(GetRawData(baseUrl)));
+                        return await Task.Run(async () => JsonConvert.DeserializeObject<MpWeeklyRuns>(await GetRawData(baseUrl)));
                     case DataType.MythicPlusHighest:
-                        return await Task.Run(() => JsonConvert.DeserializeObject<MpHighestRuns>(GetRawData(baseUrl)));
+                        return await Task.Run(async () => JsonConvert.DeserializeObject<MpHighestRuns>(await GetRawData(baseUrl)));
                     case DataType.MythicPlusRanking:
-                        return await Task.Run(() => JsonConvert.DeserializeObject<MpRanking>(GetRawData(baseUrl)));
+                        return await Task.Run(async () => JsonConvert.DeserializeObject<MpRanking>(await GetRawData(baseUrl)));
                     case DataType.MythicPlusAffixes:
-                        return await Task.Run(() => JsonConvert.DeserializeObject<Affixes>(GetRawData(baseUrl)));
+                        return await Task.Run(async () => JsonConvert.DeserializeObject<Affixes>(await GetRawData(baseUrl)));
                     case DataType.GuildProgression:
-                        return await Task.Run(() => JsonConvert.DeserializeObject<GuildRaidProgression>(GetRawData(baseUrl)));
+                        return await Task.Run(async () => JsonConvert.DeserializeObject<GuildRaidProgression>(await GetRawData(baseUrl)));
                     default:
                         throw new NotSupportedException("The Requested Option Is Not Supported.");
                 }
          }
         
 
-        private string GetRawData(string url)
+        private async Task<string> GetRawData(string url)
         {
-            return new WebClient().DownloadString(url);
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage message = await client.GetAsync(url);
+                    message.EnsureSuccessStatusCode();
+                    return await message.Content.ReadAsStringAsync();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex);
+                }
+            }
         }
 
         private string GetBaseUrl(Region region)
