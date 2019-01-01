@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaiderIO", "RaiderIO\RaiderIO.csproj", "{66527DE9-0860-431E-8C32-FF038F4EA091}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaiderIoTestApp", "RaiderIoTestApp\RaiderIoTestApp.csproj", "{23ABE77A-20E0-4AB0-99A4-7FF15D82AF3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{66527DE9-0860-431E-8C32-FF038F4EA091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66527DE9-0860-431E-8C32-FF038F4EA091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66527DE9-0860-431E-8C32-FF038F4EA091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23ABE77A-20E0-4AB0-99A4-7FF15D82AF3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23ABE77A-20E0-4AB0-99A4-7FF15D82AF3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23ABE77A-20E0-4AB0-99A4-7FF15D82AF3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23ABE77A-20E0-4AB0-99A4-7FF15D82AF3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
