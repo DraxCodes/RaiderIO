@@ -3,7 +3,6 @@ using RaiderIO.Entities;
 using RaiderIO.Entities.Enums;
 using RaiderIO.Entities.MythicPlusRuns;
 using System;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -22,70 +21,50 @@ namespace RaiderIO
         /// <param name="realm">The Realm the character you're looking up is on.</param>
         /// <param name="name">The Name of the character you're looking up.</param>
         public RaiderIOClient(Region region, string realm, string name)
-        {
-            Region = region; Name = name; Realm = realm;
-        }
+            { Region = region; Name = name; Realm = realm; }
 
         /// <summary>
         /// Returns Basic Character Stats for the user define by the client.
         /// </summary>
         /// <returns></returns>
         public async Task<CharacterExtended> GetCharacterStats()
-        {
-            var baseUrl = $"{GetBaseUrl(Region)}&realm={Realm}&name={Name}&fields=gear%2Cguild%2Craid_progression%2Cmythic_plus_scores";
-            return await DeserializeJson(DataType.Character, baseUrl) as CharacterExtended;
-        }
+            => await DeserializeJson(DataType.Character, GetUrl(DataType.Character)) as CharacterExtended;
 
         /// <summary>
-        ///     Gets The Mythic+ Data For The Character.
+        /// Gets The Mythic+ Data For The Character.
         /// </summary>
         /// <returns></returns>
         public async Task<MpRecentRuns> GetRecentRuns()
-        {
-            var baseUrl = $"{GetBaseUrl(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_recent_runs";
-            return await DeserializeJson(DataType.MythicPlusRecent, baseUrl) as MpRecentRuns;
-        }
+            => await DeserializeJson(DataType.MythicPlusRecent, GetUrl(DataType.MythicPlusRecent)) as MpRecentRuns;
 
         /// <summary>
-        ///  Gets the Mythic+ Best Runs for the Character
+        /// Gets the Mythic+ Best Runs for the Character
         /// </summary>
         /// <param name="count">The Number of results to return.</param>
         /// <returns></returns>
         public async Task<MpBestRuns> GetBestRuns(int count)
-        {
-            var baseUrl = $"{GetBaseUrl(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_best_runs:{count}";
-            return await DeserializeJson(DataType.MythicPlusBest, baseUrl) as MpBestRuns;
-        }
+            => await DeserializeJson(DataType.MythicPlusBest, $"{GetUrl(DataType.MythicPlusBest)}:{count}") as MpBestRuns;
 
         /// <summary>
         /// Gets the Mythic+ Weekly Runs for the Character.
         /// </summary>
         /// <returns></returns>
         public async Task<MpWeeklyRuns> GetWeeklyRuns()
-        {
-            var baseUrl = $"{GetBaseUrl(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_weekly_highest_level_runs";
-            return await DeserializeJson(DataType.MythicPlusWeekly, baseUrl) as MpWeeklyRuns;
-        }
+            => await DeserializeJson(DataType.MythicPlusWeekly, GetUrl(DataType.MythicPlusWeekly)) as MpWeeklyRuns;
 
         /// <summary>
         /// Gets The Mythic+ Highest Runs for the Character.
         /// </summary>
         /// <returns></returns>
         public async Task<MpHighestRuns> GetHighestRuns()
-        {
-            var baseUrl = $"{GetBaseUrl(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_highest_level_runs";
-            return await DeserializeJson(DataType.MythicPlusHighest, baseUrl) as MpHighestRuns;
-        }
+            => await DeserializeJson(DataType.MythicPlusHighest, GetUrl(DataType.MythicPlusHighest)) as MpHighestRuns;
 
         /// <summary>
         /// Gets the Mythic+ Rankings for the Chartacter.
         /// </summary>
         /// <returns></returns>
         public async Task<MpRanking> GetMythicPlusRankings()
-        {
-            var baseUrl = $"{GetBaseUrl(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_ranks";
-            return await DeserializeJson(DataType.MythicPlusRanking, baseUrl) as MpRanking;
-        }
+            => await DeserializeJson(DataType.MythicPlusRanking, GetUrl(DataType.MythicPlusRanking)) as MpRanking;
 
         /// <summary>
         /// Gets The current weeks Mythic+ Affixes.
@@ -170,7 +149,6 @@ namespace RaiderIO
                 }
          }
         
-
         private async Task<string> GetRawData(string url)
         {
             using (HttpClient client = new HttpClient())
@@ -188,7 +166,28 @@ namespace RaiderIO
             }
         }
 
-        private string GetBaseUrl(Region region)
+        private string GetUrl(DataType type)
+        {
+            switch (type)
+            {
+                case DataType.Character:
+                    return $"{GetBaseUrlRegion(Region)}&realm={Realm}&name={Name}&fields=gear%2Cguild%2Craid_progression%2Cmythic_plus_scores";
+                case DataType.MythicPlusRecent:
+                    return $"{GetBaseUrlRegion(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_recent_runs";
+                case DataType.MythicPlusBest:
+                    return $"{GetBaseUrlRegion(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_best_runs";
+                case DataType.MythicPlusWeekly:
+                    return $"{GetBaseUrlRegion(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_weekly_highest_level_runs";
+                case DataType.MythicPlusHighest:
+                    return $"{GetBaseUrlRegion(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_highest_level_runs";
+                case DataType.MythicPlusRanking:
+                    return $"{GetBaseUrlRegion(Region)}&realm={Realm}&name={Name}&fields=mythic_plus_ranks";
+                default:
+                    throw new Exception("Error In RaiderIOClient - GetUrl");
+            }
+        }
+
+        private string GetBaseUrlRegion(Region region)
         {
             string baseUrl = null;
             switch (region)
