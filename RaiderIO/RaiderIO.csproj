@@ -13,6 +13,7 @@
     <PackageId>RaiderIOSharp</PackageId>
     <PackageLicenseUrl>https://github.com/DraxCodes/RaiderIOSharp/blob/master/LICENSE</PackageLicenseUrl>
     <Version>1.1.2</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
