@@ -1,3 +1,19 @@
-version: 1.0.{build}
-build_script:
+version: 1.1.{build}
+image: Visual Studio 2017 Preview
+clone_folder: C:\Projects\RaiderIOSharp
+skip_commits:
+  message: /Update/
+before_build:
+- cmd: dotnet restore
+build:
+  verbosity: minimal
+after_build:
 - cmd: dotnet build
+artifacts:
+- path: '**\*.nupkg'
+  name: RaiderIOSharp
+deploy:
+- provider: NuGet
+  api_key:
+    secure: oy2hvzjuqocvixzhgzzqsm6gfs6fquku5dn4ddsc3v3ehq
+  artifact: RaiderIOSharp

@@ -12,6 +12,7 @@
     <PackageTags>raider raider.io wow world of warcraft</PackageTags>
     <PackageId>RaiderIOSharp</PackageId>
     <PackageLicenseUrl>https://github.com/DraxCodes/RaiderIOSharp/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
