@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace RaiderIO
 {
+    /// <summary>
+    /// The Overall Client.
+    /// </summary>
     public sealed class RaiderIOClient
     {
         private Region Region { get; set; }
