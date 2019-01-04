@@ -17,3 +17,11 @@ deploy:
   api_key:
     secure: 9OYhZ0NK9boRNELSUtp986tMKHUYPoG+LGPCcS6MWNZcAxmgJeUfSfqpiXUI6BVh
   artifact: RaiderIOSharp
+  
+on_success:
+- ps: Invoke-RestMethod https://raw.githubusercontent.com/DraxCodes/RaiderIOSharp/master/VeyorHook.ps1 -o VeyorHook.ps1
+- ps: ./VeyorHook.ps1 success $env:WEBHOOK_URL
+
+on_failure:
+- ps: Invoke-RestMethod https://raw.githubusercontent.com/DraxCodes/RaiderIOSharp/master/VeyorHook.ps1 -o VeyorHook.ps1
+- ps: ./VeyorHook.ps1 failure $env:WEBHOOK_URL
