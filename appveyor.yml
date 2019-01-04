@@ -1,4 +1,4 @@
-version: 1.1.{build}
+version: RaiderIOSharp-{build}
 image: Visual Studio 2017 Preview
 clone_folder: C:\Projects\RaiderIOSharp
 skip_commits:
