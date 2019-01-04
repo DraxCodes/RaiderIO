@@ -10,7 +10,7 @@
     <PackageIconUrl>https://i.imgur.com/cCh2naD.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/DraxCodes/RaiderIOSharp</RepositoryUrl>
     <PackageTags>raider raider.io wow world of warcraft</PackageTags>
-    <PackageId>RaiderIOSharp</PackageId>
+    <PackageId>RaiderIOSharp V2</PackageId>
     <PackageLicenseUrl>https://github.com/DraxCodes/RaiderIOSharp/blob/master/LICENSE</PackageLicenseUrl>
     <Version>1.1.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

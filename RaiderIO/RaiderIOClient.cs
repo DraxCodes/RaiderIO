@@ -18,7 +18,7 @@ namespace RaiderIO
         private string Realm { get; set; }
 
         /// <summary>
-        /// An Instance of the RaderIo Client. Used To Access all Raider.IO Data. (Returns Basic Character Details Via RaiderIOClient.Champion)
+        /// An Instance of the RaiderIO Client. Used To Access all Raider.IO Data.
         /// </summary>
         /// <param name="region">The Region the character you're looking up is from.</param>
         /// <param name="realm">The Realm the character you're looking up is on.</param>
