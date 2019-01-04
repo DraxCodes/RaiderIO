@@ -23,7 +23,7 @@ namespace RaiderIO
         /// <param name="region">The Region the character you're looking up is from.</param>
         /// <param name="realm">The Realm the character you're looking up is on.</param>
         /// <param name="name">The Name of the character you're looking up.</param>
-        public RaiderIOClient(Region region, string realm, string name)
+        public RaiderIOClient(Region region, string realm = null, string name = null)
             { Region = region; Name = name; Realm = realm; }
 
         /// <summary>
