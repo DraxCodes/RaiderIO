@@ -15,23 +15,29 @@ namespace RaiderIoTestApp
         {
             //The Params Defined Here will be used for all of the core Character Specific Requests.
             var client = new RaiderIOClient(Region.EU, "Draenor", "Perifete");
-            var characterStats = await client.GetCharacterStats();
-            Console.WriteLine($"Extended Character Test: {characterStats.GetRaidProgression.Uldir.Summary}");
+            var characterData = await client.GetCharacterStats();
+            string text = $"**Name**: {characterData.Name}\n" +
+                $"**Links**: [Raider.IO]({characterData.Url}) | [Armory](none) | [WowAnalzyer](none)\n" +
+                $"**Class**: {characterData.Race}, {characterData.SpecName} {characterData.Class}\n" +
+                $"**Item Level**: Equipped: {characterData.Gear.ItemLevelEquiped} | Overall: {characterData.Gear.ItemLevelAverage}\n" +
+                $"**Raid Progression (Uldir)**: {characterData.GetRaidProgression.Uldir.Summary}\n" +
+                $"**Mythic+**: {characterData.GetMythicPlusScores.Overall}";
+            Console.WriteLine(text);
 
-            var recent = await client.GetRecentRuns();
-            Test(recent.RecentRuns, "Recent Runs");
+            //var recent = await client.GetRecentRuns();
+            //Test(recent.RecentRuns, "Recent Runs");
 
-            var best = await client.GetBestRuns(3);
-            Test(best.BestRuns, "Best Runs");
+            //var best = await client.GetBestRuns(3);
+            //Test(best.BestRuns, "Best Runs");
 
-            var weekly = await client.GetWeeklyRuns();
-            Test(weekly.WeeklyRuns, "Weekly Runs");
+            //var weekly = await client.GetWeeklyRuns();
+            //Test(weekly.WeeklyRuns, "Weekly Runs");
 
-            var highest = await client.GetHighestRuns();
-            Test(highest.HighestRuns, "Highest Runs");
+            //var highest = await client.GetHighestRuns();
+            //Test(highest.HighestRuns, "Highest Runs");
 
-            var rankings = await client.GetMythicPlusRankings();
-            Console.WriteLine($"\n\n RANKS\nOverall: {rankings.Rankings.Overall.World}\nRealm DPS: {rankings.Rankings.Dps.Realm}");
+            //var rankings = await client.GetMythicPlusRankings();
+            //Console.WriteLine($"\n\n RANKS\nOverall: {rankings.Rankings.Overall.World}\nRealm DPS: {rankings.Rankings.Dps.Realm}");
 
             //This requires the Region param again to allow for the user to request affixes for any region.
             //regardless of those defined in the RaiderIOClient. 
@@ -42,10 +48,10 @@ namespace RaiderIoTestApp
                 Console.WriteLine($"{item.Name}\n{item.Description}\n");
             }
 
-            //This requires additonal params due to not actually calling character specific data.
-            //Instead here, we're calling guild data.
-            var guildprog = await client.GetGuildRaidProgression(Region.EU, "draenor", "Phoenix Arising");
-            Console.WriteLine($"\n\nGuild Raid Summary: {guildprog.RaidInfo.Uldir.Summary}");
+            ////This requires additonal params due to not actually calling character specific data.
+            ////Instead here, we're calling guild data.
+            //var guildprog = await client.GetGuildRaidProgression(Region.EU, "draenor", "Phoenix Arising");
+            //Console.WriteLine($"\n\nGuild Raid Summary: {guildprog.RaidInfo.Uldir.Summary}");
 
             Console.ReadLine();
         }
