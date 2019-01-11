@@ -7,7 +7,7 @@
 **Add the Nuget Package: RaiderIoSharp via the package manager.
 Or Run**
 ```bash
-Install-Package RaiderIOSharp -Version 1.0.0 
+Install-Package RaiderIOSharp-V2 -Version 2.0.2 
 ```
 ```cs
 //Create a new instance of the RaiderIO Client.
