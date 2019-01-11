@@ -14,7 +14,7 @@ Install-Package RaiderIOSharp-V2 -Version 2.0.2
 //Client requires 3 things. Region, Realm & Character Name. Provide them as below.
 //Regions are stored in an Enum so (Region.) with intelliensence enabled should display all availble regions.
 var client = new RaiderIOClient(Region.EU, "Draenor", "Perifete");
-Now you can call information for the user. Below is an example of calling CharacterStats.
+//Now you can call information for the user. Below is an example of calling CharacterStats.
 var characterData = await client.GetCharacterStats();
 
 //Due to how Raider.IO Handles requests, it is one client per character request for now. This may change in future.
