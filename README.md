@@ -13,21 +13,21 @@ Install-Package RaiderIOSharp-V2 -Version 2.0.2
 //Create a new instance of the RaiderIO Client.
 //Client requires 3 things. Region, Realm & Character Name. Provide them as below.
 //Regions are stored in an Enum so (Region.) with intelliensence enabled should display all availble regions.
-var client = new RaiderIOClient(Region.EU, "Draenor", "Shamkie");
-//Now you're able to access all the basic Raider.IO data for the specified user.
-Console.WriteLine($"Extended Character Test: {client.Champion.GetRaidProgression.Uldir.Summary}");
+var client = new RaiderIOClient(Region.EU, "Draenor", "Perifete");
+Now you can call information for the user. Below is an example of calling CharacterStats.
+var characterData = await client.GetCharacterStats();
 
 //Due to how Raider.IO Handles requests, it is one client per character request for now. This may change in future.
 ```
-### Get The MythicPlus Best Runs For That Character
+### Get This weeks affixes
 ```cs
-//Request the best runs info.
-//Requires an Int Param for the amount of requests to return.
-var mythicplus = client.GetBestRuns(3);
-//This returns a list of the best runs for the character, you can then do whatever you like with it.
-foreach (var item in mythicplus.RecentRuns)
+//This requires the Region param again to allow for the user to request affixes for any region.
+//regardless of those defined in the RaiderIOClient. 
+var affixes = await client.GetAffixes(Region.EU);
+Console.WriteLine("\n\nAffixes");
+foreach (var item in affixes.CurrentAffixes)
 {
-     Console.WriteLine($"Mythic Plus Test: {item.DungeonName}");
+    Console.WriteLine($"{item.Name}\n{item.Description}\n");
 }
 ```
 ### Currently Supports
