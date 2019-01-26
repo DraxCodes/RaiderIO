@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RaiderIO.Entities.MythicPlusRuns
+namespace RaiderIO.Entities.MythicPlus
 {
     public class MpWeeklyRuns
     {
