@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace RaiderIO
 {
+
     /// <summary>
     /// The Overall Client.
     /// </summary>
@@ -80,7 +81,7 @@ namespace RaiderIO
         /// <returns></returns>
         public async Task<Affixes> GetAffixesAsync(Region region)
         {
-            string baseUrl = String.Empty;
+            string baseUrl = string.Empty;
             switch (region)
             {
                 case Region.US:
